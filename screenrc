@@ -1,22 +1,11 @@
-vbell on
 startup_message off
 
+shell -bash
 
+defscrollback 4096
 
-setenv SSH_AUTH_SOCK $HOME/.screen_socket.ssh
+hardstatus on
+hardstatus  alwayslastline
+hardstatus  string '%{= kG}[ %{G}%H %{G}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{G}][%{B} %m.%d %{W}%c %{G}]'
 
-defscrollback 10000
-
-#caption always "%{gk} (%{yk}%H%{gk}) | %{= kc}%?%-Lw%?%{= kY}%n*%f %t%?(%u)%?%{= kc}%?%+Lw%?"
-#hardstatus alwayslastline "%{= }%{+b g}%c %{-b g}%d/%m/%Y %{-b w}[%{+b r}%H %{-b r}load: %l%{w}] w:%{y}%n %{w}(%{y}%t%{w})"
-
-multiuser on
-
-hardstatus alwayslastline
-hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
-
-#shelltitle "$ |bash"
-
-altscreen on
-
-termcapinfo xterm 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+defutf8 on

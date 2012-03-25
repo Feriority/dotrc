@@ -8,7 +8,7 @@ The goal of this project is to keep all my rc files in sync regardless of the co
 
 1. Clone the project :
 
-    `$ git clone git://github.com/jrottenberg/dotrc ~/dotrc`
+    `$ git clone git://github.com/Feriority/dotrc ~/dotrc`
 
 1. Run the symlink helper :
 

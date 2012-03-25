@@ -1,0 +1,20 @@
+$VAR1 = {
+          'dm' => 0,
+          'testing' => 1,
+          'pipe' => 2,
+          'purl' => 6,
+          'dbic' => 1,
+          'kristine' => 0,
+          'karmaBot' => -4,
+          'vinod' => 7,
+          'us' => -1,
+          'joshu' => 2,
+          'mst' => 1,
+          'richardhsu' => -2,
+          'asp' => -4,
+          'mrohai' => -3,
+          'efung' => 1,
+          'bandwidth' => -1,
+          'chevans' => 0,
+          'milki' => 0
+        };

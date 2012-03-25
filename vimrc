@@ -1,197 +1,85 @@
+"Use Vim settings, rather then Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
 
-" use vim defaults, no vi's
-set nocompatible 
-
-set history=50          " keep 50 lines of command line history
-
-"set ruler 		"Always show cursor position
-"set rulerformat=%h%r%m%=%f
-"set statusline=%<%f%h%m%r%=%{strftime(\"%l:%M:%S\ \%p,\ %a\ %b\ %d,\ %Y\")}\ %{&ff}\ %l,%c%V\ %P
-
-" Automatically indent based on file type: 
-filetype indent on
-filetype plugin on 
-set nosmartindent
-
-" hilight the screen line of the cursor
-"set cursorline
-"highlight CursorLine term=none cterm=none ctermbg=0
-"autocmd InsertLeave * hi CursorLine term=none cterm=none ctermbg=0
-" autocmd InsertEnter * hi CursorLine term=none cterm=none ctermbg=0
-
-
-set hidden
-
-
-"map <silent> <Leader>cl      :set                  cursorline! <CR>
-"imap <silent> <Leader>cl <Esc>:set                  cursorline! <CR>a
-
-" WhitespaceEOL == Bad
-highlight WhitespaceEOL ctermbg=red guibg=red
-
-"Make the completion menus readable
-highlight Pmenu ctermfg=0 ctermbg=3
-highlight PmenuSel ctermfg=0 ctermbg=7
-
-
-set background=dark
-
-" fancy title string 
-set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)\ \ -\ %{hostname()}
-
- 
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set laststatus=2
 
-"Syntax highlighting if appropriate
+" allow backspacing over everything in insert mode
+set backspace=eol,indent,start
+
+" Make a backup before overwriting a file.  The backup is removed 
+" after the file was successfully written
+set writebackup
+
+set ruler		" Show the cursor position all the time 
+set showmatch		" Match Parens
+set matchtime=500	" Match for half a second
+set pastetoggle=<F3>	" Toggle our paste mode to not indent
+set foldmethod=syntax	" Fold on syntax by default
+
+" Make vim smart
 syntax on
-highlight MatchParen ctermbg=darkblue guibg=blue
-set hlsearch
-set incsearch 
-"Usually I don't care about case
-set ignorecase
-"Only ignore case when we type lower case
-set smartcase
-set showmatch
+filetype plugin on
+filetype indent on
 
-" Color !
-syn on 	
+colorscheme putty
 
+" Break a line
+map <Leader>f 072lBi<cr><esc>
 
-" mkdir -p ~/.vim/.{backup,swap,undo}
-set backup
-set swapfile
-set backupdir=$HOME/.vim/.backup//,.
-set directory=$HOME/.vim/.swap//,.
-:if version >= 730
-:  set undodir=$HOME/.vim/.undo//,.
-:endif
+" Tabbing
+set noexpandtab
+set softtabstop=4
+set tabstop=4
+set shiftwidth=4
 
+set autowrite
+set textwidth=0
+set showcmd
 
-
-" Python syntax check
-syn match pythonError "^\s*def\s\+\w\+(.*)\s*$" display
-syn match pythonError "^\s*class\s\+\w\+(.*)\s*$" display
-syn match pythonError "^\s*for\s.*[^:]$" display
-syn match pythonError "^\s*except\s*$" display
-syn match pythonError "^\s*finally\s*$" display
-syn match pythonError "^\s*try\s*$" display
-syn match pythonError "^\s*else\s*$" display
-syn match pythonError "^\s*else\s*[^:].*" display
-syn match pythonError "^\s*if\s.*[^\:]$" display
-syn match pythonError "^\s*except\s.*[^\:]$" display
-syn match pythonError "[;]$" display
-syn keyword pythonError         do
-
-" Syntax checking entire file
-" Usage: :make (check file)
-" :clist (view list of errors)
-" :cn, :cp (move around list of errors)
-autocmd BufRead *.py set makeprg=python\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
-autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
-
-
-
-nnoremap <F2> :set invpaste paste?<CR>
-imap <F2> <C-O>:set invpaste paste?<CR>
-set pastetoggle=<F2>
-
-
-" PEP 8 
-setlocal tabstop=4
-setlocal softtabstop=4
-setlocal shiftwidth=4
-" setlocal textwidth=79
-setlocal smarttab
-setlocal expandtab
-setlocal smartindent
-
-
-" Menu
-set wildmenu
-
-
-set commentstring=\ #\ %s
-set wildignore+=*.pyc,*.zip,*.gz,*.bz,*.tar,*.jpg,*.png,*.gif,*.avi,*.wmv,*.ogg,*.mp3,*.mov
-
-
-" Tabs
-map \t :tabnew<cr>
-map \n :tabnext<cr>
-map \p :tabprevious<cr>
-map \c :tabclose<cr>
-
-
-
-" Number of spaces to use for an indent.
-" This will affect Ctrl-T and 'autoindent'.
-" Python: 4 spaces
-au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
-
-" Number of spaces that a pre-existing tab is equal to.
-" For the amount of space used for a new tab use shiftwidth.
-" Python: 8
-au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=8
-
-" Replace tabs with the equivalent number of spaces.
-" Also have an autocmd for Makefiles since they require hard tabs.
-" Python: yes
-" Makefile: no
-au BufRead,BufNewFile *.py,*.pyw set expandtab
-au BufRead,BufNewFile Makefile* set noexpandtab
-
-" Use the below highlight group when displaying bad whitespace is desired
-highlight BadWhitespace ctermbg=red guibg=red
-
-" Display tabs at the beginning of a line in Python mode as bad.
-au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
-" Make trailing whitespace be flagged as bad.
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
-" Wrap text after a certain number of characters
-" Python: 79 
-" C: 79
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h set textwidth=79
-
-" Turn off settings in 'formatoptions' relating to comment formatting.
-" - c : do not automatically insert the comment leader when wrapping based on
-"    'textwidth'
-" - o : do not insert the comment leader when using 'o' or 'O' from command mode
-" - r : do not insert the comment leader when hitting <Enter> in insert mode
-" Python: not needed
-" C: prevents insertion of '*' at the beginning of every line in a comment
-au BufRead,BufNewFile *.c,*.h set formatoptions-=c formatoptions-=o formatoptions-=r
-
-" Use UNIX (\n) line endings.
-" Only used for new files so as to not force existing files to change their
-" line endings.
-" Python: yes
-" C: yes
-au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
-
-
-" ----------------------------------------------------------------------------
-" The following section contains suggested settings.  While in no way required
-" to meet coding standards, they are helpful.
-
-" Set the default file encoding to UTF-8: 
+" Encoding
 set encoding=utf-8
+set fileencoding=utf-8
 
-" Puts a marker at the beginning of the file to differentiate between UTF and
-" UCS encoding (WARNING: can trick shells into thinking a text file is actually
-" a binary file when executing the text file): ``set bomb``
+" Fold Conf Files
+au FileType conf syn region confBraces start="{" end="}" transparent fold
 
-" For full syntax highlighting:
-let python_highlight_all=1
+" I rarely write old-style sh. It's almost always bash:
+let is_bash="true"
 
+" If I paste and indentation gets fsck'd:
+inoremap <silent> <C-g> <ESC>u:set paste<CR>.:set nopaste<CR>gi
 
-" Folding based on indentation: 
-"set foldmethod=indent
-au BufWinLeave * mkview
-au BufWinEnter * silent loadview
+" Tab Navigation
+map <C-t> <ESC>:tabnew
 
-" Modeline are useful
-set modeline
+" Stuff that's stolen from the net, not from milki, goes here
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" Search as you type
+set incsearch
+
+" Completion!
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+
+" Cool extra python highlight stuff
+let python_space_error_highlight = 1
+
+" LOLPython
+au BufRead,BufNewFile *.lol set filetype=lolpython
+let lolpython_space_error_highlight = 1
+
+set tags=./tags;/
+
+" show line numbers - make use of the extra screen real-estate with
+" textwidth set to 72.  Up to 4 digits are okay for line numbers
+set number
+set numberwidth=4
+
+set viminfo='20,\"500
+
+map = gt
+map - gT
+
+" Override tab rules for lolpython
+au BufRead,BufNewFile *.lol setlocal expandtab
