@@ -8,7 +8,7 @@ DOTRC_FILE=$(echo $0 | sed -e 's/.*\///')
 
 for F in $(ls $DOTRC_DIR | grep -v $DOTRC_FILE)
 do
-    if [ "$F" -eq "README.md" ]; then
+    if [ "$F" == "README.md" ]; then
         continue
     fi
     if [ ! -h "$HOME/.$F" ]; then
