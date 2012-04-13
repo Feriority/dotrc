@@ -200,8 +200,8 @@ Irssi::settings_add_str('misc', 'mood_nose', '-');
 
 Irssi::statusbar_item_register('moodbar', 0, 'mood_show');
 
-Irssi::timeout_add(5000, 'mood_decay', undef);
-Irssi::timeout_add(10000, 'change_bored_mouth', undef);
+Irssi::timeout_add(60000, 'mood_decay', undef);
+Irssi::timeout_add(120000, 'change_bored_mouth', undef);
 
 close_mouth;
 change_bored_mouth();
