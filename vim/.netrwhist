@@ -1,11 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/nail/home/aneeshg/pg/yelp-main/yelp/logic'
-let g:netrw_dirhist_2='/nail/home/aneeshg/pg/yelp-main/yelp/tests/batch/ads'
-let g:netrw_dirhist_3='/nail/home/aneeshg/pg/yelp-main/yelp/tests/batch'
-let g:netrw_dirhist_4='/nail/home/aneeshg/pg/yelp-main/yelp/tests/batch/ads'
-let g:netrw_dirhist_5='/nail/home/aneeshg/pg/yelp-main/yelp/logic/business_stats'
-let g:netrw_dirhist_6='/nail/home/aneeshg/pg/yelp-main/yelp/ad/models'
-let g:netrw_dirhist_7='/nail/home/aneeshg/.vim'
-let g:netrw_dirhist_8='/nail/home/aneeshg/hackathon7/invisible-bicycle/invisiblebicycle'
-let g:netrw_dirhist_9='/nail/home/aneeshg/.vim'
+let g:netrw_dirhist_cnt =0
