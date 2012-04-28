@@ -4,10 +4,10 @@ export VISUAL=vim
 export PAGER=less
 export LESS="-R"
 
-if [[ FreeBSD == $(uname) ]] ; then
-	alias ls='ls -G'
-else
+if [[ Linux == $(uname) ]] ; then
 	alias ls='ls --color'
+else
+	alias ls='ls -G'
 fi
 
 alias tree='tree -C'
@@ -42,3 +42,5 @@ alias usermem="ps auxwwwf | awk '{ foo[\$1] += \$6 } END { for (user in foo) { p
 
 # META
 alias addalias='vim ~/.bash_aliases'
+
+[ -f ~/.bash_aliases_local ] && source ~/.bash_aliases_local
