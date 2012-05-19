@@ -29,7 +29,7 @@ colorscheme putty
 map <Leader>f 072lBi<cr><esc>
 
 " Tabbing
-set noexpandtab
+set expandtab
 set softtabstop=4
 set tabstop=4
 set shiftwidth=4
@@ -65,10 +65,6 @@ autocmd FileType python set omnifunc=pythoncomplete#Complete
 " Cool extra python highlight stuff
 let python_space_error_highlight = 1
 
-" LOLPython
-au BufRead,BufNewFile *.lol set filetype=lolpython
-let lolpython_space_error_highlight = 1
-
 set tags=./tags;/
 
 " show line numbers - make use of the extra screen real-estate with
@@ -81,5 +77,10 @@ set viminfo='20,\"500
 map = gt
 map - gT
 
-" Override tab rules for lolpython
-au BufRead,BufNewFile *.lol setlocal expandtab
+""" Language-related bindings
+" LOLPython
+au BufRead,BufNewFile *.lol set filetype=lolpython
+let lolpython_space_error_highlight = 1
+
+" Ren'Py
+au BufRead,BufNewFile *.rpy set filetype=renpy
