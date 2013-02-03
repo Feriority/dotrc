@@ -12,11 +12,19 @@ servers = (
     port = "6667";
     use_ssl = "no";
     ssl_verify = "no";
+  },
+  {
+    address = "irc.foonetic.net";
+    chatnet = "foonetic";
+    port = "6667";
+    use_ssl = "no";
+    ssl_verify = "no";
   }
 );
 chatnets = {
   "bitlbee-work" = { type = "IRC"; nick = "aneesh-work"; };
   "bitlbee-home" = { type = "IRC"; nick = "aneesh"; };
+  foonetic = { type = "IRC"; };
 };
 
 aliases = {
@@ -190,7 +198,7 @@ settings = {
   core = {
     real_name = "Aneesh Goel";
     user_name = "aneesh";
-    nick = "hal_wintermute";
+    nick = "aneesh-work";
     timestamp_format = "%H:%M:%S";
     recode_fallback = "utf-8";
     recode_out_default_charset = "utf-8";
@@ -205,7 +213,7 @@ settings = {
   };
   "perl/core/scripts" = {
     awl_display_key = "$H$Q$C$S";
-    awl_block = "-10";
+    awl_block = "4";
     awl_display_key_active = "%8$Q$C%n";
     awl_display_nokey = "$N$C";
   };
