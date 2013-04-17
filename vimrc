@@ -52,7 +52,9 @@ let is_bash="true"
 inoremap <silent> <C-g> <ESC>u:set paste<CR>.:set nopaste<CR>gi
 
 " Tab Navigation
-map <C-t> <ESC>:tabnew
+map <C-t> <ESC>:tabedit
+map <TAB> gt
+map <S-TAB> gT
 
 " Stuff that's stolen from the net, not from milki, goes here
 
@@ -73,9 +75,6 @@ set number
 set numberwidth=4
 
 set viminfo='20,\"500
-
-map = gt
-map - gT
 
 """ Language-related bindings
 " LOLPython
