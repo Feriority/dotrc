@@ -52,7 +52,7 @@ let is_bash="true"
 inoremap <silent> <C-g> <ESC>u:set paste<CR>.:set nopaste<CR>gi
 
 " Tab Navigation
-map <C-t> <ESC>:tabedit
+map <C-t> <ESC>:tabedit 
 map <TAB> gt
 map <S-TAB> gT
 
