@@ -29,8 +29,8 @@ servers = (
 chatnets = {
   "bitlbee-work" = { type = "IRC"; nick = "aneesh-work"; };
   "bitlbee-home" = { type = "IRC"; nick = "aneesh"; };
-  foonetic = { type = "IRC"; };
-  dmirc = { type = "IRC"; };
+  foonetic = { type = "IRC"; nick = "feriority"; };
+  dmirc = { type = "IRC"; nick = "aneesh"; };
 };
 
 aliases = {
@@ -223,11 +223,14 @@ settings = {
     awl_display_key_active = "%8$Q$C%n";
     awl_display_nokey = "$N$C";
     screen_away_message = "Away";
-    megahal_brain = "/home/aneesh/projects/AR/brains/";
+    megahal_brain = "/home/aneesh/projects/AR/brains/root_brains/";
     megahal_always_autorespond = "no";
   };
 };
-hilights = ( { text = "aneesh"; nick = "yes"; word = "yes"; } );
+hilights = (
+  { text = "aneesh"; nick = "yes"; word = "yes"; },
+  { text = "feriority"; nick = "yes"; word = "yes"; fullword = "yes"; }
+);
 windows = { 1 = { immortal = "yes"; name = "(status)"; level = "ALL"; }; };
 mainwindows = { 1 = { first_line = "1"; lines = "56"; }; };
 keyboard = ( { key = "meta-x"; id = "command"; data = "window last"; } );

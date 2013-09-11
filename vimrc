@@ -16,7 +16,7 @@ set ruler		" Show the cursor position all the time
 set showmatch		" Match Parens
 set matchtime=500	" Match for half a second
 set pastetoggle=<F3>	" Toggle our paste mode to not indent
-set foldmethod=syntax	" Fold on syntax by default
+" set foldmethod=syntax	" Fold on syntax by default
 
 " Make vim smart
 syntax on
