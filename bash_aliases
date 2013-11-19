@@ -33,5 +33,4 @@ alias usermem="ps auxwwwf | awk '{ foo[\$1] += \$6 } END { for (user in foo) { p
 # META
 alias addalias='vim ~/.bash_aliases'
 
-alias clipboard='xsel --input --clipboard'
 [ -f ~/.bash_aliases_local ] && source ~/.bash_aliases_local
