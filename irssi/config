@@ -230,7 +230,7 @@ settings = {
     awl_display_key_active = "%8$Q$C%n";
     awl_display_nokey = "$N$C";
     screen_away_message = "Away";
-    megahal_brain = "/home/aneesh/projects/AR/brains/root_brains/";
+    megahal_brain = "/home/aneesh/projects/AR/brains/ether_brains/";
     megahal_always_autorespond = "no";
   };
 };
