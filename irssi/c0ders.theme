@@ -257,7 +257,7 @@ formats = {
     no_query = "%g// No query with {nick $0}";
     query_server_changed = "%g// Query with {nick $0} changed to server {server $1}";
     no_away_msgs = "%g// Nothing to log while you where gone...";
-    pubmsg = "{pubmsgnick $2 {pubnick \00311$0}}$1";
+    pubmsg = "{pubmsgnick $2 {pubnick \00310$0}}$1";
   };
   "fe-common/fe-text" = {
     paste_warning = "%g// Pasting $0 lines to $1. Press Ctrl-K if you wish to do this or Ctrl-C to cancel.";

@@ -1,6 +1,25 @@
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 
-export PS1="\[\e[0;31m\e(0\]lqq\[\e(B\](\e[1;32m\u\[\e[0;35m\]@\[\e[1;36m\]\h\[\e[0;31m\])\[\e(0\]qqqqqq\[\e(B\](\[\e[1;33m\]\w\[\e[0;31m\])\[\e(0\]qqqu\[\e(B\]\n\[\e(0\]mqq\[\e(B\](\[\e[0;32m\]\\$\[\e[0;31m\])\[\e[0;0m\] "
+function _git_prompt() {
+    local git_status="`git status -unormal 2>&1`"
+    if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
+        if [[ "$git_status" =~ nothing\ to\ commit ]]; then
+            local ansi='\e[0;32m'
+        else
+            local ansi='\e[0;34m'
+        fi
+        if [[ "$git_status" =~ On\ branch\ ([^[:space:]]+) ]]; then
+            branch=${BASH_REMATCH[1]}
+        else
+            # Detached HEAD. (branch=HEAD is a faster alternative.)
+            branch="(`git describe --all --contains --abbrev=4 HEAD 2> /dev/null ||
+                echo HEAD`)"
+        fi
+        echo -n '\[\e(0\]qqqqqq\[\e(B\](\['"$ansi"'\]'"$branch"'\[\e[31m\])'
+    fi
+}
+
+export PROMPT_COMMAND='export PS1="\[\e[0;31m\e(0\]lqq\[\e(B\](\e[1;32m\u\[\e[0;35m\]@\[\e[1;36m\]\h\[\e[0;31m\])\[\e(0\]qqqqqq\[\e(B\](\[\e[1;33m\]\w\[\e[0;31m\])$(_git_prompt)\[\e(0\]qqqu\[\e(B\]\n\[\e(0\]mqq\[\e(B\](\[\e[0;32m\]\\$\[\e[0;31m\])\[\e[0;0m\] "'
 
 # Fix gnome-terminal color support
 if [ "$COLORTERM" == "gnome-terminal" ]; then

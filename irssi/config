@@ -21,7 +21,7 @@ servers = (
     ssl_verify = "no";
   },
   {
-    address = "irc.caffeinatedcode.com";
+    address = "irc2.caffeinatedcode.com";
     chatnet = "dmirc";
     use_ssl = "yes";
   }
@@ -198,6 +198,13 @@ statusbar = {
         barend = { priority = "100"; alignment = "right"; };
       };
     };
+    awl_1 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_1 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
   };
 };
 settings = {
@@ -229,7 +236,8 @@ settings = {
 };
 hilights = (
   { text = "aneesh"; nick = "yes"; word = "yes"; },
-  { text = "feriority"; nick = "yes"; word = "yes"; fullword = "yes"; }
+  { text = "feriority"; nick = "yes"; word = "yes"; fullword = "yes"; },
+  { text = "theriority"; nick = "yes"; word = "yes"; }
 );
 windows = { 1 = { immortal = "yes"; name = "(status)"; level = "ALL"; }; };
 mainwindows = { 1 = { first_line = "1"; lines = "56"; }; };
