@@ -83,3 +83,6 @@ let lolpython_space_error_highlight = 1
 
 " Ren'Py
 au BufRead,BufNewFile *.rpy set filetype=renpy
+
+""" Finally, pathogen
+execute pathogen#infect()
