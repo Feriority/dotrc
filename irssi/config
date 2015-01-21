@@ -198,20 +198,13 @@ statusbar = {
         barend = { priority = "100"; alignment = "right"; };
       };
     };
-    awl_1 = {
-      items = {
-        barstart = { priority = "100"; };
-        awl_1 = { };
-        barend = { priority = "100"; alignment = "right"; };
-      };
-    };
   };
 };
 settings = {
   core = {
-    real_name = "Aneesh Goel";
-    user_name = "aneesh";
-    nick = "aneesh-work";
+    real_name = "Feriority";
+    user_name = "root";
+    nick = "Feriority";
     timestamp_format = "%H:%M:%S";
     recode_fallback = "utf-8";
     recode_out_default_charset = "utf-8";

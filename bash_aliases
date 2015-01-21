@@ -27,6 +27,7 @@ alias ggg='go-go-gadget'
 alias cgrep="grep --color=always"
 alias yank="git pull origin master"
 alias shove="git push origin HEAD"
+alias tarxvzf='tar -xvzf'
 
 alias usermem="ps auxwwwf | awk '{ foo[\$1] += \$6 } END { for (user in foo) { print foo[user] \" \" user }}' | sort -rn"
 
